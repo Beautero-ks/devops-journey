@@ -9,4 +9,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  base: "/devops-journey/", // chemin relatif pour GitHub Pages
 })
