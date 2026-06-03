@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Etape 4 : Builder l'application
+       # Etape 4a : Build pour Vercel (base "/")
       - name: Build application
         run: npm run build
 
@@ -41,6 +41,10 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
 
+          # Etape 4b : Build pour GitHub Pages (base "/devops-journey/")
+      - name: Build for GitHub Pages
+        run: npm run build:gh
+        
       # Etape 6 : Deployer sur GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
